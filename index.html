@@ -21,7 +21,7 @@
         }
 
         header {
-            background-color: rgba(201, 161, 188, 0.9); /* Olive green with transparency */
+            background-color: rgba(201, 169, 191, 0.9); /* Olive green with transparency */
             color: #42413f;
             text-align: center;
             padding: 20px 0;
@@ -31,13 +31,13 @@
             padding: 20px;
             margin: 20px auto;
             max-width: 800px;
-            background-color: rgba(235, 223, 210, 0.9); /* Semi-transparent white */
+            background-color: rgba(230, 225, 212, 0.9); /* Semi-transparent white */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
 
         h1, h2 {
-            color: #834463; /* Warm orange */
+            color: #854e6a; /* Warm orange */
         }
 
         a {
@@ -74,11 +74,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>We can't wait to celebrate with you on 19.07.2025</h1>
     
-    </header>
-
     <section class="section">
         <h2>Event Details</h2>
         <p>Join us for an unforgettable outdoor wedding! Here are the details:</p>
@@ -101,7 +97,7 @@
 
     <section class="section">
         <div class="container">
-            <h1>FormSubmit Demo</h1>
+            <h1>Confirmation ( ends on 01-04-2025)</h1>
             <form target="_blank" action="https://formsubmit.co/antopaz_16@hotmail.com" method="POST">
               <div class="form-group">
                 <div class="form-row">
@@ -119,10 +115,42 @@
               <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
             </form>
           </div>
-
-            <button type="submit">Submit</button>
         </form>
     </section>
+    <section class="section" id="countdown-section">
+        <h2>Countdown to Our Big Day!</h2> 
+        <div id="countdown" style="font-size: 24px; font-weight: bold;"></div>
+    </section>
+    <script>
+        // Set the date of the wedding
+        const weddingDate = new Date("July 19, 2024 00:00:00").getTime();
+    
+        // Update the countdown every second
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+    
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+    
+            // If the countdown is over, display a message
+            if (timeLeft < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "The Big Day is Here!";
+            }
+        }, 1000);
+    </script>  
+    <header>
+        <h2>We can't wait to celebrate with you on 19.07.2025</h2>
+    
+    </header>
+  
 </body>
 </html>
 
